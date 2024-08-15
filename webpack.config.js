@@ -20,7 +20,12 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
+    alias: {
+      "@components": path.resolve(__dirname, "src/components"),
+      "@assets": path.resolve(__dirname, "src/assets"),
+    },
   },
+
   module: {
     rules: [
       {
@@ -31,6 +36,10 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
     ],
   },
