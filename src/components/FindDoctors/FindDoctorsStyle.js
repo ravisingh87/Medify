@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const FindDoctorsContainerDiv = styled.div`
   width: 100%;
+  background: linear-gradient(
+    81deg,
+    #e7f0ff 9.01%,
+    rgba(232, 241, 255, 0.47) 89.11%
+  );
 `;
 export const FindDoctorsPatchDiv = styled.div`
   width: 100%;

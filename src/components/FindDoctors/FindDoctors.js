@@ -7,6 +7,7 @@ import {
 import { IoLocationOutline, IoSearch } from "react-icons/io5";
 import axios from "axios";
 import Search from "./Search";
+import FindDoctorsCard from "@components/FindDoctorsCard/FindDoctorsCard";
 
 const FindDoctors = () => {
   let timer = null;
@@ -23,6 +24,7 @@ const FindDoctors = () => {
     city: "",
     from: "",
   });
+  const [hospitalData, setHospitalData] = useState([]);
 
   const fetchStates = async () => {
     try {
@@ -83,6 +85,21 @@ const FindDoctors = () => {
     setData({ ...data, [name]: val, from: "" });
     fetchCities(val);
   };
+
+  const handleSubmit = async () => {
+    try {
+      const res = await axios(
+        `https://meddata-backend.onrender.com/data?state=${data.states}&city=${data.city}`
+      );
+      if (res.status === 200) {
+        setHospitalData([...res.data]);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  console.log(hospitalData);
 
   useEffect(() => {
     fetchStates();
@@ -146,10 +163,15 @@ const FindDoctors = () => {
           )}
         </div>
 
-        <button type='button' className='btn btn-primary'>
+        <button
+          type='button'
+          className='btn btn-primary'
+          onClick={handleSubmit}
+        >
           <IoSearch /> &nbsp; Search
         </button>
       </FindDoctorsSearchDiv>
+      {hospitalData.length > 0 && <FindDoctorsCard data={hospitalData} />}
     </FindDoctorsContainerDiv>
   );
 };
