@@ -24,12 +24,12 @@ cursor:pointer;
 &.active {
     color: ${(props) => props.theme.color.primary};
     position: relative;
-    top: 6.5px;
+    top: 2.5px;
     &::after {
       content: '';
       position: relative;
       height: 5px;
-      margin-top: 0.5rem;
+         top: 23px;
       border-radius: 5px;
       background-color: ${(props) => props.theme.color.primary};
       display: block;
@@ -42,12 +42,12 @@ export const NavAnchorTag = styled.a`
 
 export const NavbarCollapse = styled.div`
   background-color: ${(props) => props.$size < 990 && props.theme.color.white};
-  height: 70vh;
+  height: ${(props) => props.$size < 990 && "70vh"};
   border-radius: 20px;
   padding: 10px;
   z-index: 1;
   // window size < 990
   position: ${(props) => (props.$size < 990 ? "absolute" : "relative")};
   top: ${(props) => (props.$size < 990 ? "75px" : 0)};
-  width: ${(props) => props.$size < 990 && "72vw"};
+  width: ${(props) => props.$size < 990 && "69vw"};
 `;

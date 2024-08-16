@@ -1,7 +1,6 @@
 import React from "react";
-import { HeaderContainer, HeaderNav, HeaderStyle } from "./HomeStyle";
+import { HeaderContainer } from "./HomeStyle";
 
-import Nav from "@components/Nav/Nav";
 import SectionOne from "@components/Section/SectionOne/SectionOne";
 import SectionFour from "@components/Section/SectionFour/SectionFour";
 import SectionThree from "@components/Section/SectionThree/SectionThree";
@@ -16,15 +15,7 @@ import SectionEleven from "@components/Section/SectionEleven/SectionEleven";
 const Home = () => {
   return (
     <HeaderContainer>
-      <HeaderStyle>
-        The health and well-being of our patients and their health care team
-        will always be our priority, so we follow the best practices for
-        cleanliness.
-      </HeaderStyle>
       <div className='container'>
-        <HeaderNav className='navbar navbar-expand-lg'>
-          <Nav />
-        </HeaderNav>
         <SectionOne />
       </div>
       <SectionThree />
