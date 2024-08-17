@@ -8,6 +8,7 @@ const Search = ({ data, handleData, from }) => {
         <SearchedTextDiv
           key={`${item}_${idx}`}
           onClick={() => handleData(from, item)}
+          data-bs-toggle=''
         >
           {item}
         </SearchedTextDiv>

@@ -8,6 +8,9 @@ import { IoLocationOutline, IoSearch } from "react-icons/io5";
 import axios from "axios";
 import Search from "./Search";
 import FindDoctorsCard from "@components/FindDoctorsCard/FindDoctorsCard";
+import SectionNine from "@components/Section/SectionNine/SectionNine";
+import SectionTen from "@components/Section/SectionTen/SectionTen";
+import SectionEleven from "@components/Section/SectionEleven/SectionEleven";
 
 const FindDoctors = () => {
   let timer = null;
@@ -99,80 +102,86 @@ const FindDoctors = () => {
     }
   };
 
-  console.log(hospitalData);
-
   useEffect(() => {
     fetchStates();
   }, []);
 
   return (
-    <FindDoctorsContainerDiv>
-      <FindDoctorsPatchDiv />
-      <FindDoctorsSearchDiv className='container fluid'>
-        <div className='input-group'>
-          <span className='input-group-text'>
-            <IoLocationOutline />
-          </span>
-          <input
-            type='text'
-            className='form-control state'
-            placeholder='State'
-            aria-label='State'
-            aria-describedby='basic-addon1'
-            name='states'
-            value={data.states}
-            onClick={() => setData({ ...data, from: "states" })}
-            onChange={(e) => {
-              setData({ ...data, [e.target.name]: e.target.value });
-              debounce(handleState(e.target.value), 1000);
-            }}
-          />
-          {data.from === "states" && data.states !== "" && (
-            <Search
-              data={states.tempData}
-              handleData={handleData}
-              from='states'
+    <>
+      <FindDoctorsContainerDiv>
+        <FindDoctorsPatchDiv />
+        <FindDoctorsSearchDiv className='container fluid'>
+          <div className='input-group'>
+            <span className='input-group-text'>
+              <IoLocationOutline />
+            </span>
+            <input
+              type='text'
+              className='form-control state'
+              placeholder='State'
+              aria-label='State'
+              aria-describedby='basic-addon1'
+              data-bs-toggle=''
+              name='states'
+              value={data.states}
+              onClick={() => setData({ ...data, from: "states" })}
+              onChange={(e) => {
+                setData({ ...data, [e.target.name]: e.target.value });
+                debounce(handleState(e.target.value), 1000);
+              }}
             />
-          )}
-        </div>
+            {data.from === "states" && data.states !== "" && (
+              <Search
+                data={states.tempData}
+                handleData={handleData}
+                from='states'
+              />
+            )}
+          </div>
 
-        <div className='input-group'>
-          <span className='input-group-text'>
-            <IoLocationOutline />
-          </span>
-          <input
-            type='text'
-            className='form-control city'
-            placeholder='City'
-            aria-label='City'
-            aria-describedby='basic-addon1'
-            name='city'
-            value={data.city}
-            onClick={() => setData({ ...data, from: "city" })}
-            onChange={(e) => {
-              setData({ ...data, [e.target.name]: e.target.value });
-              debounce(handleCity(e.target.value), 1000);
-            }}
-          />
-          {data.from === "city" && (
-            <Search
-              data={cities.tempData}
-              handleData={handleData}
-              from='city'
+          <div className='input-group'>
+            <span className='input-group-text'>
+              <IoLocationOutline />
+            </span>
+            <input
+              type='text'
+              className='form-control city'
+              placeholder='City'
+              aria-label='City'
+              aria-describedby='basic-addon1'
+              name='city'
+              value={data.city}
+              onClick={() => setData({ ...data, from: "city" })}
+              onChange={(e) => {
+                setData({ ...data, [e.target.name]: e.target.value });
+                debounce(handleCity(e.target.value), 1000);
+              }}
             />
-          )}
-        </div>
+            {data.from === "city" && (
+              <Search
+                data={cities.tempData}
+                handleData={handleData}
+                from='city'
+              />
+            )}
+          </div>
 
-        <button
-          type='button'
-          className='btn btn-primary'
-          onClick={handleSubmit}
-        >
-          <IoSearch /> &nbsp; Search
-        </button>
-      </FindDoctorsSearchDiv>
-      {hospitalData.length > 0 && <FindDoctorsCard data={hospitalData} />}
-    </FindDoctorsContainerDiv>
+          <button
+            type='button'
+            className='btn btn-primary'
+            onClick={handleSubmit}
+          >
+            <IoSearch /> &nbsp; Search
+          </button>
+        </FindDoctorsSearchDiv>
+        {hospitalData.length > 0 && (
+          <FindDoctorsCard data={hospitalData} city={data.states} />
+        )}
+      </FindDoctorsContainerDiv>
+      <SectionNine />
+      <SectionTen />
+      <SectionEleven />
+    </>
   );
 };
 

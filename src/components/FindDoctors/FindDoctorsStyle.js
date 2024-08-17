@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const FindDoctorsContainerDiv = styled.div`
   width: 100%;
+  min-height: 80vh;
+  padding-bottom: 5rem;
   background: linear-gradient(
     81deg,
     #e7f0ff 9.01%,

@@ -18,10 +18,11 @@ export const FindDoctorsCardTitle = styled.div`
 `;
 
 export const FindDoctorsCardWrapper = styled.div`
+  width: 63%;
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
-  justify-content: center;
+  // justify-content: center;
 `;
 export const FindDoctorsCardData = styled.div`
   width: 820px;
@@ -159,4 +160,10 @@ export const FindDoctorsCardDataWrapper = styled.div`
       width: 75%;
     }
   }
+`;
+
+export const FindDoctorsCardWrapperContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
 `;
