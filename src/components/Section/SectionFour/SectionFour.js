@@ -5,7 +5,7 @@ import {
   SectionFourSpan,
 } from "./SectionFourStyle";
 import BloodSample from "@assets/icons/Blood Sample.png";
-import DrugStore from "@assets/icons/DrugStore.png";
+import DrugStore from "@assets/icons/Drugstore.png";
 import HospitalBlock from "@assets/icons/HostpitalBlock.png";
 import HeartRate from "@assets/icons/Heart Rate.png";
 import Immune from "@assets/icons/Immune.png";

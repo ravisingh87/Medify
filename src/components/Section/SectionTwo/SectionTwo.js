@@ -11,7 +11,7 @@ import { IoMdSearch } from "react-icons/io";
 import Ambulance from "@assets/icons/Ambulance.png";
 import Capsule from "@assets/icons/Capsule.png";
 import Doctor from "@assets/icons/Doctor.png";
-import DrugStore from "@assets/icons/DrugStore.png";
+import DrugStore from "@assets/icons/Drugstore.png";
 import HospitalBuilding from "@assets/icons/HospitalBuilding.png";
 
 const data = [

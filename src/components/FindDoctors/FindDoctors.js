@@ -11,6 +11,7 @@ import FindDoctorsCard from "@components/FindDoctorsCard/FindDoctorsCard";
 import SectionNine from "@components/Section/SectionNine/SectionNine";
 import SectionTen from "@components/Section/SectionTen/SectionTen";
 import SectionEleven from "@components/Section/SectionEleven/SectionEleven";
+import { staticData } from "../../data";
 
 const FindDoctors = () => {
   let timer = null;
@@ -174,9 +175,10 @@ const FindDoctors = () => {
             <IoSearch /> &nbsp; Search
           </button>
         </FindDoctorsSearchDiv>
-        {hospitalData.length > 0 && (
+        {/* {hospitalData.length > 0 && (
           <FindDoctorsCard data={hospitalData} city={data.states} />
-        )}
+        )} */}
+        <FindDoctorsCard data={staticData} city={data.states} />
       </FindDoctorsContainerDiv>
       <SectionNine />
       <SectionTen />

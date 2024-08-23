@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FindDoctorsCardAdvertisement,
   FindDoctorsCardContainer,
@@ -13,8 +13,11 @@ import check from "@assets/check.svg";
 import advertise from "@assets/addvertise.png";
 import { BiSolidLike } from "react-icons/bi";
 import img1 from "@assets/image22.png";
+import SlotBooking from "@components/SlotBooking/SlotBooking";
+import { data } from "../../data";
 
 const FindDoctorsCard = ({ data, city }) => {
+  const [showTimeSlot, setShowTimeSlot] = useState(null);
   return (
     <FindDoctorsCardContainer className='container'>
       <FindDoctorsCardTitle>
@@ -31,7 +34,7 @@ const FindDoctorsCard = ({ data, city }) => {
       <FindDoctorsCardWrapperContainer>
         <FindDoctorsCardWrapper>
           {data.map((item) => (
-            <FindDoctorsCardData>
+            <FindDoctorsCardData key={item["Provider ID"]}>
               <FindDoctorsCardDataWrapper>
                 <div>
                   <FindDoctorsCardSpan>
@@ -57,9 +60,12 @@ const FindDoctorsCard = ({ data, city }) => {
                 </div>
                 <div>
                   <p>Available Today</p>
-                  <button>Book FREE Center Visit</button>
+                  <button onClick={() => setShowTimeSlot(item["Provider ID"])}>
+                    Book FREE Center Visit
+                  </button>
                 </div>
               </FindDoctorsCardDataWrapper>
+              {showTimeSlot === item["Provider ID"] && <SlotBooking />}
             </FindDoctorsCardData>
           ))}
         </FindDoctorsCardWrapper>

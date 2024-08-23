@@ -18,25 +18,30 @@ export const FindDoctorsCardTitle = styled.div`
 `;
 
 export const FindDoctorsCardWrapper = styled.div`
-  width: 63%;
+  width: 65%;
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
   // justify-content: center;
 `;
 export const FindDoctorsCardData = styled.div`
-  width: 820px;
+  width: 100%;
   background: #ffffff;
   display: flex;
   border-radius: 15px;
   justify-content: space-around;
   align-items: center;
   padding: 15px;
+  flex-direction: column;
+  gap: 15px;
 `;
 export const FindDoctorsCardAdvertisement = styled.div`
-  width: 460px;
   border-radius: 15px;
   background: #ffffff;
+  display: flex;
+  align-self: baseline;
+  margin-left: 7px;
+  padding: 35px;
   img {
     object-fit: cover;
     cursor: pointer;
@@ -59,6 +64,7 @@ export const FindDoctorsCardDataWrapper = styled.div`
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  margin-top: 3rem;
   div:nth-child(1) {
     height: 100%;
     position: relative;
@@ -90,6 +96,13 @@ export const FindDoctorsCardDataWrapper = styled.div`
         margin: 0;
       }
       &:nth-child(4) {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.6px;
+        color: #414146;
+        margin: 0;
+      }
+      &:nth-child(5) {
         font-size: 14px;
         font-weight: 400;
         line-height: 19.6px;
@@ -164,6 +177,8 @@ export const FindDoctorsCardDataWrapper = styled.div`
 
 export const FindDoctorsCardWrapperContainer = styled.div`
   display: flex;
-  justify-content: space-around;
-  align-items: baseline;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 `;
